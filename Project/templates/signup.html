@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="static/signup.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="header">Sign Up</h1>
+    <form action="action_page.php" method="post">
+        <label for="username" class="text"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+        <label for="email" class="text"><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email" required>
+        <label for="password" class="text"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <label for="cpassword" class="text"><b>Confirm Password</b></label>
+        <input type="password" placeholder="Confirm Password" name="cpassword" required>
+        <button type="submit">Create Account</button>
+    </form>
+    <p class="footer";> Already have an account? <a href="#">Login &#8594;</a></p>
+  </div>
+
+</body>
+</html>
