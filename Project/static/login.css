@@ -1,0 +1,74 @@
+body{
+  /*background-color:  rgba(0, 128, 0, 0.3);*/
+  background-image: linear-gradient(to right, rgba(0, 128, 0, 0.1), rgba(0, 128, 0, 0.9));
+}
+
+/* Bordered form */
+form {
+  border: 3px solid #f1f1f1;
+}
+
+/* Full-width inputs */
+input[type=email], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 100px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 25px;
+  font-size: 15px;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Add padding to containers */
+.container {
+  margin: 100px auto;
+  width: 400px;
+  padding: 20px;
+  background-color:#f1f1f1;
+  border-radius: 25px;
+}
+
+.header{
+    text-align: center;
+    font-family:sans-serif;
+}
+
+.text{
+font-size: 18px;
+font-family:sans-serif;
+}
+
+.footer {
+font-size: 15px;
+font-family:sans-serif;
+text-align: center;
+}
+
+<!--/* Change styles for span and cancel button on extra small screens */-->
+<!--@media screen and (max-width: 300px) {-->
+<!--  span.psw {-->
+<!--    display: block;-->
+<!--    float: none;-->
+<!--  }-->
+<!--  .cancelbtn {-->
+<!--    width: 100%;-->
+<!--  }-->
+<!--}-->
