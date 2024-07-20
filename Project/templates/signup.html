@@ -10,7 +10,8 @@
 <body>
   <div class="container">
     <h1 class="header">Sign Up</h1>
-    <form action="action_page.php" method="post">
+    <form method="post">
+        {% csrf_token %}
         <label for="username" class="text"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="username" required>
         <label for="email" class="text"><b>Email</b></label>
