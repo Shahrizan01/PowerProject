@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 
@@ -18,7 +18,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return redirect('index')
+            return redirect('homepage')
         else:
             messages.error(request, 'Invalid username or password. Please try again.')
             return redirect('login')
@@ -48,3 +48,20 @@ def signup_view(request):
         return redirect('login')
 
     return render(request, 'signup.html')
+
+def homepage_view(request):
+    if request.user.is_authenticated == True:
+        return render(request, 'homepage.html')
+    else:
+        return redirect('login')
+
+
+def logout_view(request):
+    if request.user.is_authenticated == True:
+        username = request.user.username
+    else:
+        username = None
+    
+    if username != None:
+        logout(request)
+        return redirect(index)

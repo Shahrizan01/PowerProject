@@ -174,8 +174,8 @@ h6 {
   font-size: 32px;
 }
 
-.header .btn-getstarted,
-.header .btn-getstarted:focus {
+.header .btn-login,
+.header .btn-login:focus {
   color: var(--contrast-color);
   font-size: 14px;
   padding: 8px 30px;
@@ -185,8 +185,8 @@ h6 {
   border: 2px solid var(--accent-color);
 }
 
-.header .btn-getstarted:hover,
-.header .btn-getstarted:focus:hover {
+.header .btn-login:hover,
+.header .btn-login:focus:hover {
   color: var(--default-color);
   background: var(--accent-color);
 }
@@ -1712,6 +1712,5 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
+
+/* .starter-section { /* Add your styles here */ 
