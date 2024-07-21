@@ -68,3 +68,7 @@ def homepage_view(request):
 def logout_action(request):
     logout(request)
     return redirect('index')
+
+
+def room_view(request):
+    return render(request, 'mainpage.html')
