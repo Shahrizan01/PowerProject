@@ -19,7 +19,15 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return redirect('homepage')
+            first_name = request.user.first_name
+            last_name = request.user.last_name
+
+            data = {
+                'user': user,
+                'name': first_name + ' ' + last_name,
+            }
+
+            return render(request, 'index.html', data)
         else:
             messages.error(request, 'Invalid username or password. Please try again.')
             return redirect('login')
@@ -58,8 +66,5 @@ def homepage_view(request):
 
 @login_required
 def logout_action(request):
-    if request.method == 'POST':
-        logout(request)
-        return redirect('index')
-    else:
-        return redirect('homepage')
+    logout(request)
+    return redirect('index')
