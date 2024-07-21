@@ -1,6 +1,5 @@
 body{
-  /*background-color:  rgba(0, 128, 0, 0.3);*/
-  background-image: linear-gradient(to right, rgba(0, 128, 0, 0.1), rgba(0, 128, 0, 0.9));
+    background-color: white;
 }
 
 /* Bordered form */
@@ -21,15 +20,15 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #04AA6D;
-  color: white;
+  background-color: rgb(255, 196, 81);
+  color: black;
   padding: 14px 20px;
   margin: 8px 100px;
   border: none;
   cursor: pointer;
   width: 50%;
   border-radius: 25px;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 /* Add a hover effect for buttons */

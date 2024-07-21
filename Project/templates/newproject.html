@@ -1,13 +1,155 @@
 <!DOCTYPE html>
+<!--{% load static %}-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>New Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicons -->
+  <link href="static/assets/img/favicon.png" rel="icon">
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="static/assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="static/newproject.css">
+
+  <title>New project</title>
 </head>
+
 <body>
-<div>
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-</div>
+      <a href="" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">HEM</h1>
+        <span>.</span>
+      </a>
 
+      <nav id="navmenu" class="navmenu">
+        <ul>
+<!--          <li><a href="#hero" class="active">Home<br></a></li>-->
+          <li class="dropdown"><a href="#"><span>Home</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#footer">Contact Us</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Dashboard</a></li>
+          <li class="dropdown"><a href="#"><span>Project</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li class="dropdown"><a href="#"><span>Installation</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul>
+                      <li><a href="#">New Project</a></li>
+                      <li><a href="#">Open Existing Project</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown"><a href="#"><span>Real-Time Monitoring</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul>
+                      <li><a href="#">New Project</a></li>
+                      <li><a href="#">Open Existing project</a></li>
+                    </ul>
+                  </li>
+                </ul>
+          </li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      {% if name is not none %}
+        <li class="dropdown"><a href="#"><span>Hi {{ name }} </span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="/logout">Logout</a></li>
+            </ul>
+        </li>
+      {% else %}
+        <a class="btn-login" href="/login">Login</a>
+      {% endif %}
+    </div>
+  </header>
+
+  <section>
+            <div >
+                <form >
+                    <fieldset class="test">
+                    <legend>New project</legend>
+                    <label for="nameproject" class="text"><b>Project Name:</b></label>
+                    <input type="text" name="nameproject" required><br><br>
+                    <label for="numroom" class="text"><b>Number of rooms</b></label>
+                    <select name="numroom" id="numroom">
+                          <option value="numroom1">1</option>
+                          <option value="numroom2">2</option>
+                          <option value="numroom3">3</option>
+                          <option value="numroom4">4</option>
+                          <option value="numroom5">5</option>
+                    </select>
+                    </fieldset>
+                </form>
+            </div>
+
+            </div>
+                <button class="w3-yellow" type="submit">Save</button>
+            </div>
+  </section>
+
+<!--&lt;!&ndash; Top menu on small screens &ndash;&gt;-->
+<!--<header class="w3-container w3-top w3-hide-large w3-light-grey w3-xlarge w3-padding">-->
+<!--  <a href="javascript:void(0)" class="w3-button w3-light-grey w3-margin-right" onclick="w3_open()">☰</a>-->
+<!--  <span>Home Energy Management System</span>-->
+<!--</header>-->
+
+<!--&lt;!&ndash; Overlay effect when opening sidebar on small screens &ndash;&gt;-->
+<!--<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>-->
+
+<script>
+// Accordion
+function myAccFunc1() {
+  var x = document.getElementById("project");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+function myAccFunc2() {
+  var x = document.getElementById("install");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+</script>
 </body>
 </html>

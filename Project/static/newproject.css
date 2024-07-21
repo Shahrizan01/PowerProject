@@ -1,0 +1,38 @@
+form {
+    padding:10px;
+}
+
+h2{
+    background-color:#f2f2f2
+}
+
+legend{
+    background-color:  #cccccc;
+    padding: 10px 14px;
+}
+
+section{
+    margin: 150px auto;
+    width: 50%; border:
+    3px solid black;
+    padding: 50px;
+    border-radius: 25px;
+    background-color:#f2f2f2;
+}
+
+button {
+  color: black;
+  padding: 5px 5px;
+  margin: auto;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  border-radius: 25px;
+  font-size: 20px;
+  float: right;
+}
+
+/*Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
