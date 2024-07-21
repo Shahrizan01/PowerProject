@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -49,19 +50,16 @@ def signup_view(request):
 
     return render(request, 'signup.html')
 
+
+@login_required
 def homepage_view(request):
-    if request.user.is_authenticated == True:
-        return render(request, 'homepage.html')
-    else:
-        return redirect('login')
+    return render(request, 'homepage.html')
 
 
-def logout_view(request):
-    if request.user.is_authenticated == True:
-        username = request.user.username
-    else:
-        username = None
-    
-    if username != None:
+@login_required
+def logout_action(request):
+    if request.method == 'POST':
         logout(request)
-        return redirect(index)
+        return redirect('index')
+    else:
+        return redirect('homepage')
