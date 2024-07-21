@@ -34,23 +34,29 @@
 </head>
 
 <body>
-    <header id="header" class="header d-flex align-items-center fixed-top">
-        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-          <a href="" class="logo d-flex align-items-center me-auto me-lg-0">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-            <!-- <img src="assets/img/logo.png" alt=""> -->
-            <h1 class="sitename">HEM</h1>
-            <span>.</span>
-          </a>
+      <a href="" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">HEM</h1>
+        <span>.</span>
+      </a>
 
-          <nav id="navmenu" class="navmenu">
+      <nav id="navmenu" class="navmenu">
+        <ul>
+<!--          <li><a href="#hero" class="active">Home<br></a></li>-->
+          <li class="dropdown"><a href="#"><span>Home</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#hero" class="active">Home<br></a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#team">Team</a></li>
-              <li class="dropdown"><a href="#"><span>Project</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <li><a href="#footer">Contact Us</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Dashboard</a></li>
+          <li class="dropdown"><a href="#"><span>Project</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
                   <li class="dropdown"><a href="#"><span>Installation</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
@@ -64,20 +70,23 @@
                       <li><a href="#">Open Existing project</a></li>
                     </ul>
                   </li>
-<!--                  <li><a href="#">Dropdown 2</a></li>-->
-<!--                  <li><a href="#">Dropdown 3</a></li>-->
-<!--                  <li><a href="#">Dropdown 4</a></li>-->
                 </ul>
-              </li>
-              <li><a href="#contact">Contact</a></li>
+          </li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      {% if name is not none %}
+        <li class="dropdown"><a href="#"><span>Hi {{ name }} </span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="/logout">Logout</a></li>
             </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-          </nav>
+        </li>
+      {% else %}
+        <a class="btn-login" href="/login">Login</a>
+      {% endif %}
 
-          <a class="btn-login" href="/login">Logout</a>
-
-        </div>
-    </header>
+    </div>
+  </header>
 
 <!-- Sidebar/menu -->
     <aside class="w3-sidebar w3-light-grey w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
@@ -86,137 +95,111 @@
 <!--        <h3 class="w3-padding-64"><b>Home Energy<br>Management<br>System</b></h3>-->
         <h3 class="w3-padding-64"><b>Project Name</b></h3>
       </div>
-      <div class="w3-bar-block">
-<!--        <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>-->
-<!--        <a onclick="myAccFunc1()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-white" id="myBtn">-->
-<!--          Project <i class="fa fa-caret-down"></i>-->
-<!--        </a>-->
-<!--        <div id="project" class="w3-bar-block w3-hide w3-padding-large w3-medium">-->
-<!--    &lt;!&ndash;      <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>&ndash;&gt;-->
-<!--          <a href="#" class="w3-bar-item w3-button w3-hover-white">New Project</a>-->
-<!--          <a href="#" class="w3-bar-item w3-button w3-hover-white">Existing Project</a>-->
-<!--        </div>-->
 
-        <a onclick="myAccFunc2()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-white" id="myBtn">
+      <div class="w3-bar-block">
+        <a onclick="myAccFunc2()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-yellow" id="myBtn">
           Room <i class="fa fa-caret-down"></i>
         </a>
         <div id="install" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-    <!--      <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>-->
-          <a href="#" class="w3-bar-item w3-button w3-hover-white">Room 1</a>
-          <a href="#" class="w3-bar-item w3-button w3-hover-white">Room 2</a>
-          <a href="#" class="w3-bar-item w3-button w3-hover-white">...</a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-yellow">Room 1</a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-yellow">Room 2</a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-yellow">...</a>
         </div>
-
-        <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rooftop Solar Generation</a>
-        <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Installation Recommendations</a>
-    <!--    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a>-->
-<!--        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>-->
+        <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-yellow">Rooftop Solar Generation</a>
+        <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-yellow">Installation Recommendations</a>
       </div>
     </aside>
 
-    <section  style="float:right; margin: 100px 70px; width: 70%; border: 3px solid #73AD21; padding: 10px;;">
-        <h1>
-            Room 1
-        </h1>
+    <section>
         <div class="container">
+            <div>
+                <h2><b>Room 1</b></h2>
+            </div>
 
-        <div>
-            <h2 class="header w3-light-grey" >Room Construction</h2>
+            <div >
+                <form method="post">
+                {% csrf_token %}
+                    <fieldset class="test">
+                    <legend>Room Construction</legend>
+                    <label for="nameroom" class="text"><b>Name: </b></label>
+                    <input type="text" name="nameroom" required><br><br>
+                    <label for="description" class="text"><b>Description: </b></label>
+                    <input type="text" name="description" required><br><br>
+                    <label for="apps" class="text"><b>Room Application: </b></label>
+                    <select name="apps" id="apps">
+                      <option value="living">Living Room</option>
+                      <option value="dining">Dining Room</option>
+                      <option value="kitchen">Kitchen</option>
+                      <option value="bedroom">Bedroom</option>
+                      <option value="bathroom">Bathroom</option>
+                    </select>
+                    </fieldset>
+                </form>
+            </div><br>
+
+            <div>
+                <form method="post">
+                {% csrf_token %}
+                    <fieldset>
+                    <legend>Room Size</legend>
+                    <label for="length" class="text"><b>Length: </b></label>
+                    <input type="text" name="length" required><br><br>
+                    <label for="width" class="text"><b>Width: </b></label>
+                    <input type="text"  name="width" required><br><br>
+                    <label for="height" class="text"><b>Height: </b></label>
+                    <input type="text"  name="height" required>
+                    </fieldset>
+                </form>
+            </div><br>
+
+            <div>
+                <form method="post">
+                {% csrf_token %}
+                    <fieldset>
+                    <legend>Room Properties</legend>
+                    <label for="colour" class="text"><b>Room Colour: </b></label>
+                    <input type="text" name="colour" required><br><br>
+                    <label for="occupant" class="text"><b>Num. Of Occupants: </b></label>
+                    <input type="text" name="occupant" required><br><br>
+                    <label for="material" class="text"><b>Building Material: </b></label>
+                    <select name="material" id="material">
+                        <option value="material1">Material 1</option>
+                        <option value="material2">Material 2</option>
+                    </select><br><br>
+                    <input type="checkbox" name="fan" value="fan">
+                    <label for="fan"> Fan </label><br>
+                </form>
+            </div><br>
+
+            <div>
+                <form method="post">
+                {% csrf_token %}
+                    <fieldset>
+                    <legend>Lighting System</legend>
+                    <label for="name" class="text"><b>Name:</b></label>
+                    <input type="text" name="name" required><br><br>
+                    <label for="description" class="text"><b>Description:</b></label>
+                    <input type="text" name="description" required><br><br>
+                    </fieldset>
+                </form>
+            </div><br>
+
+             <div>
+                <form method="post">
+                {% csrf_token %}
+                    <fieldset>
+                    <legend>Cooling System</legend>
+                    <label for="name" class="text"><b>Name: </b></label>
+                    <input type="text" name="name" required><br><br>
+                    <label for="description" class="text"><b>Description: </b></label>
+                    <input type="text" name="description" required><br><br>
+                </form>
+            </div>
+
+            </div>
+                <button class="w3-yellow" type="submit">Save</button>
+            </div>
         </div>
-
-        <div>
-            <form>
-                <label for="name" class="text"><b>Name</b></label>
-                <input type="text" name="name" required><br><br>
-                <label for="description" class="text"><b>Description</b></label>
-                <input type="text" name="description" required><br><br>
-                <label for="apps" class="text"><b>Room Application</b></label>
-                <select name="apps" id="apps">
-                  <option value="living">Living Room</option>
-                  <option value="dining">Dining Room</option>
-                  <option value="kitchen">Kitchen</option>
-                  <option value="bedroom">Bedroom</option>
-                  <option value="bathroom">Bathroom</option>
-                </select>
-            </form>
-        </div>
-
-        <div>
-            <h3 class="header w3-light-grey">Room Size</h3>
-        </div>
-
-        <div>
-            <form>
-                <label for="length" class="text"><b>Length</b></label>
-                <input type="text" name="length" required><br><br>
-                <label for="width" class="text"><b>Width</b></label>
-                <input type="text"  name="width" required><br><br>
-                <label for="height" class="text"><b>Height</b></label>
-                <input type="text"  name="height" required>
-            </form>
-        </div>
-
-        <div>
-            <h3 class="header w3-light-grey">Room Properties</h3>
-        </div>
-
-        <div>
-            <form>
-                <label for="colour" class="text"><b>Room Colour</b></label>
-                <input type="text" name="colour" required><br><br>
-                <label for="occupant" class="text"><b>Num. Of Occupants</b></label>
-                <input type="text" name="occupant" required><br><br>
-                <label for="material" class="text"><b>Building Material</b></label>
-                <select name="material" id="material">
-                    <option value="material1">Material 1</option>
-                    <option value="material2">Material 2</option>
-                </select><br>
-                <input type="checkbox" name="fan" value="fan">
-                <label for="fan"> Fan </label><br><br>
-                <div>
-                    <h4 class="header w3-light-grey">Window Properties</h4>
-                </div>
-<!--                <label for="orientation" class="text"><b>Window Orientation</b></label>-->
-<!--                <select name="orientation" id="orientation">-->
-<!--                    <option value="North">North</option>-->
-<!--                    <option value="South">South</option>-->
-<!--                    <option value="East">East</option>-->
-<!--                    <option value="West">West</option>-->
-<!--                </select><br><br>-->
-
-            </form>
-       </div>
-
-        <div>
-            <h2 class="header w3-light-grey" >Lighting System</h2>
-        </div>
-
-        <div>
-            <form>
-                <label for="name" class="text"><b>Name</b></label>
-                <input type="text" name="name" required><br><br>
-                <label for="description" class="text"><b>Description</b></label>
-                <input type="text" name="description" required><br><br>
-            </form>
-        </div>
-
-        </div>
-            <h2 class="header w3-light-grey" >Cooling System</h2>
-        </div>
-
-         <div>
-            <form>
-                <label for="name" class="text"><b>Name</b></label>
-                <input type="text" name="name" required><br><br>
-                <label for="description" class="text"><b>Description</b></label>
-                <input type="text" name="description" required><br><br>
-            </form>
-        </div>
-
-        </div>
-            <button type="submit">Save</button>
-        </div>
-
     </section>
 
 <!--&lt;!&ndash; Top menu on small screens &ndash;&gt;-->
