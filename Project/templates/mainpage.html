@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!--{% load static %}-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicons -->
+  <link href="static/assets/img/favicon.png" rel="icon">
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="static/assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="static/mainpage.css">
+
+  <title>Main Page</title>
+</head>
+
+<body>
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+          <a href="" class="logo d-flex align-items-center me-auto me-lg-0">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="assets/img/logo.png" alt=""> -->
+            <h1 class="sitename">HEM</h1>
+            <span>.</span>
+          </a>
+
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="#hero" class="active">Home<br></a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#team">Team</a></li>
+              <li class="dropdown"><a href="#"><span>Project</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li class="dropdown"><a href="#"><span>Installation</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul>
+                      <li><a href="#">New Project</a></li>
+                      <li><a href="#">Open Existing Project</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown"><a href="#"><span>Real-Time Monitoring</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul>
+                      <li><a href="#">New Project</a></li>
+                      <li><a href="#">Open Existing project</a></li>
+                    </ul>
+                  </li>
+<!--                  <li><a href="#">Dropdown 2</a></li>-->
+<!--                  <li><a href="#">Dropdown 3</a></li>-->
+<!--                  <li><a href="#">Dropdown 4</a></li>-->
+                </ul>
+              </li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+
+          <a class="btn-login" href="/login">Logout</a>
+
+        </div>
+    </header>
+
+<!-- Sidebar/menu -->
+    <aside class="w3-sidebar w3-light-grey w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+      <div class="w3-container">
+<!--        <h3 class="w3-padding-64"><b>Home Energy<br>Management<br>System</b></h3>-->
+        <h3 class="w3-padding-64"><b>Project Name</b></h3>
+      </div>
+      <div class="w3-bar-block">
+<!--        <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>-->
+<!--        <a onclick="myAccFunc1()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-white" id="myBtn">-->
+<!--          Project <i class="fa fa-caret-down"></i>-->
+<!--        </a>-->
+<!--        <div id="project" class="w3-bar-block w3-hide w3-padding-large w3-medium">-->
+<!--    &lt;!&ndash;      <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>&ndash;&gt;-->
+<!--          <a href="#" class="w3-bar-item w3-button w3-hover-white">New Project</a>-->
+<!--          <a href="#" class="w3-bar-item w3-button w3-hover-white">Existing Project</a>-->
+<!--        </div>-->
+
+        <a onclick="myAccFunc2()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-white" id="myBtn">
+          Room <i class="fa fa-caret-down"></i>
+        </a>
+        <div id="install" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+    <!--      <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>-->
+          <a href="#" class="w3-bar-item w3-button w3-hover-white">Room 1</a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-white">Room 2</a>
+          <a href="#" class="w3-bar-item w3-button w3-hover-white">...</a>
+        </div>
+
+        <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rooftop Solar Generation</a>
+        <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Installation Recommendations</a>
+    <!--    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a>-->
+<!--        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>-->
+      </div>
+    </aside>
+
+    <section  style="float:right; margin: 100px 70px; width: 70%; border: 3px solid #73AD21; padding: 10px;;">
+        <h1>
+            Room 1
+        </h1>
+        <div class="container">
+
+        <div>
+            <h2 class="header w3-light-grey" >Room Construction</h2>
+        </div>
+
+        <div>
+            <form>
+                <label for="name" class="text"><b>Name</b></label>
+                <input type="text" name="name" required><br><br>
+                <label for="description" class="text"><b>Description</b></label>
+                <input type="text" name="description" required><br><br>
+                <label for="apps" class="text"><b>Room Application</b></label>
+                <select name="apps" id="apps">
+                  <option value="living">Living Room</option>
+                  <option value="dining">Dining Room</option>
+                  <option value="kitchen">Kitchen</option>
+                  <option value="bedroom">Bedroom</option>
+                  <option value="bathroom">Bathroom</option>
+                </select>
+            </form>
+        </div>
+
+        <div>
+            <h3 class="header w3-light-grey">Room Size</h3>
+        </div>
+
+        <div>
+            <form>
+                <label for="length" class="text"><b>Length</b></label>
+                <input type="text" name="length" required><br><br>
+                <label for="width" class="text"><b>Width</b></label>
+                <input type="text"  name="width" required><br><br>
+                <label for="height" class="text"><b>Height</b></label>
+                <input type="text"  name="height" required>
+            </form>
+        </div>
+
+        <div>
+            <h3 class="header w3-light-grey">Room Properties</h3>
+        </div>
+
+        <div>
+            <form>
+                <label for="colour" class="text"><b>Room Colour</b></label>
+                <input type="text" name="colour" required><br><br>
+                <label for="occupant" class="text"><b>Num. Of Occupants</b></label>
+                <input type="text" name="occupant" required><br><br>
+                <label for="material" class="text"><b>Building Material</b></label>
+                <select name="material" id="material">
+                    <option value="material1">Material 1</option>
+                    <option value="material2">Material 2</option>
+                </select><br>
+                <input type="checkbox" name="fan" value="fan">
+                <label for="fan"> Fan </label><br><br>
+                <div>
+                    <h4 class="header w3-light-grey">Window Properties</h4>
+                </div>
+<!--                <label for="orientation" class="text"><b>Window Orientation</b></label>-->
+<!--                <select name="orientation" id="orientation">-->
+<!--                    <option value="North">North</option>-->
+<!--                    <option value="South">South</option>-->
+<!--                    <option value="East">East</option>-->
+<!--                    <option value="West">West</option>-->
+<!--                </select><br><br>-->
+
+            </form>
+       </div>
+
+        <div>
+            <h2 class="header w3-light-grey" >Lighting System</h2>
+        </div>
+
+        <div>
+            <form>
+                <label for="name" class="text"><b>Name</b></label>
+                <input type="text" name="name" required><br><br>
+                <label for="description" class="text"><b>Description</b></label>
+                <input type="text" name="description" required><br><br>
+            </form>
+        </div>
+
+        </div>
+            <h2 class="header w3-light-grey" >Cooling System</h2>
+        </div>
+
+         <div>
+            <form>
+                <label for="name" class="text"><b>Name</b></label>
+                <input type="text" name="name" required><br><br>
+                <label for="description" class="text"><b>Description</b></label>
+                <input type="text" name="description" required><br><br>
+            </form>
+        </div>
+
+        </div>
+            <button type="submit">Save</button>
+        </div>
+
+    </section>
+
+<!--&lt;!&ndash; Top menu on small screens &ndash;&gt;-->
+<!--<header class="w3-container w3-top w3-hide-large w3-light-grey w3-xlarge w3-padding">-->
+<!--  <a href="javascript:void(0)" class="w3-button w3-light-grey w3-margin-right" onclick="w3_open()">☰</a>-->
+<!--  <span>Home Energy Management System</span>-->
+<!--</header>-->
+
+<!--&lt;!&ndash; Overlay effect when opening sidebar on small screens &ndash;&gt;-->
+<!--<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>-->
+
+<script>
+// Accordion
+function myAccFunc1() {
+  var x = document.getElementById("project");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+function myAccFunc2() {
+  var x = document.getElementById("install");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+</body>
+</html>

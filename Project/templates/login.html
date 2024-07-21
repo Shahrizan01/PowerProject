@@ -10,14 +10,22 @@
 <body>
   <div class="container">
     <h1 class="header">Login</h1>
-    <form action="action_page.php" method="post">
-        <label for="email" class="text"><b>Email</b></label>
-        <input type="email" placeholder="Enter Email" name="email" required>
+      {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="email" class="text"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
         <label for="password" class="text"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
         <button type="submit">Login</button>
     </form>
-    <p class="footer"> Don't have account? <a href="#">Create New Account &#8594;</a></p>
+    <p class="footer"> Don't have account? <a href="{% url 'signup' %}">Create New Account &#8594;</a></p>
   </div>
 
 </body>
