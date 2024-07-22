@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--{% load static %}-->
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,18 +18,18 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 
   <!-- Vendor CSS Files -->
-  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/vendor/aos/aos.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}">
 
   <!-- Main CSS File -->
   <link href="static/assets/css/main.css" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="static/mainpage.css">
-  <link rel="stylesheet" href="static/assets/css/main.css">
+  <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'mainpage.css' %}">
 
   <title>Main Page</title>
 </head>
@@ -102,109 +102,121 @@
 
       <div class="w3-bar-block">
         <a onclick="myAccFunc2()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-yellow" id="myBtn">
-          Room <i class="fa fa-caret-down"></i>
+          Room <!-- <i class="fa fa-caret-down"></i>-->
         </a>
-        <div id="install" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-          <a href="#" class="w3-bar-item w3-button w3-hover-yellow">Room 1</a>
-          <a href="#" class="w3-bar-item w3-button w3-hover-yellow">Room 2</a>
-          <a href="#" class="w3-bar-item w3-button w3-hover-yellow">...</a>
-        </div>
+<!--        <div id="install" class="w3-bar-block w3-hide w3-padding-large w3-medium">-->
+<!--          <a href="#" class="w3-bar-item w3-button w3-hover-yellow">Room 1</a>-->
+<!--          <a href="#" class="w3-bar-item w3-button w3-hover-yellow">Room 2</a>-->
+<!--          <a href="#" class="w3-bar-item w3-button w3-hover-yellow">...</a>-->
+<!--        </div>-->
         <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-yellow">Rooftop Solar Generation</a>
         <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-yellow">Installation Recommendations</a>
       </div>
     </aside>
 
     <section>
-        <div class="container">
-            <div>
-                <h2><b>Room 1</b></h2>
-            </div>
-
-            <div >
-                <form method="post">
-                {% csrf_token %}
-                    <fieldset class="test">
-                    <legend>Room Construction</legend>
-                    <label for="nameroom" class="text"><b>Name: </b></label>
-                    <input type="text" name="nameroom" required><br><br>
-                    <label for="description" class="text"><b>Description: </b></label>
-                    <input type="text" name="description" required><br><br>
-                    <label for="apps" class="text"><b>Room Application: </b></label>
-                    <select name="apps" id="apps">
-                      <option value="living">Living Room</option>
-                      <option value="dining">Dining Room</option>
-                      <option value="kitchen">Kitchen</option>
-                      <option value="bedroom">Bedroom</option>
-                      <option value="bathroom">Bathroom</option>
-                    </select>
-                    </fieldset>
-                </form>
-            </div><br>
-
-            <div>
-                <form method="post">
-                {% csrf_token %}
-                    <fieldset>
-                    <legend>Room Size</legend>
-                    <label for="length" class="text"><b>Length: </b></label>
-                    <input type="text" name="length" required><br><br>
-                    <label for="width" class="text"><b>Width: </b></label>
-                    <input type="text"  name="width" required><br><br>
-                    <label for="height" class="text"><b>Height: </b></label>
-                    <input type="text"  name="height" required>
-                    </fieldset>
-                </form>
-            </div><br>
-
-            <div>
-                <form method="post">
-                {% csrf_token %}
-                    <fieldset>
-                    <legend>Room Properties</legend>
-                    <label for="colour" class="text"><b>Room Colour: </b></label>
-                    <input type="text" name="colour" required><br><br>
-                    <label for="occupant" class="text"><b>Num. Of Occupants: </b></label>
-                    <input type="text" name="occupant" required><br><br>
-                    <label for="material" class="text"><b>Building Material: </b></label>
-                    <select name="material" id="material">
-                        <option value="material1">Material 1</option>
-                        <option value="material2">Material 2</option>
-                    </select><br><br>
-                    <input type="checkbox" name="fan" value="fan">
-                    <label for="fan"> Fan </label><br>
-                </form>
-            </div><br>
-
-            <div>
-                <form method="post">
-                {% csrf_token %}
-                    <fieldset>
-                    <legend>Lighting System</legend>
-                    <label for="name" class="text"><b>Name:</b></label>
-                    <input type="text" name="name" required><br><br>
-                    <label for="description" class="text"><b>Description:</b></label>
-                    <input type="text" name="description" required><br><br>
-                    </fieldset>
-                </form>
-            </div><br>
-
-             <div>
-                <form method="post">
-                {% csrf_token %}
-                    <fieldset>
-                    <legend>Cooling System</legend>
-                    <label for="name" class="text"><b>Name: </b></label>
-                    <input type="text" name="name" required><br><br>
-                    <label for="description" class="text"><b>Description: </b></label>
-                    <input type="text" name="description" required><br><br>
-                </form>
-            </div>
-
-            </div>
-                <button class="w3-yellow" type="submit">Save</button>
-            </div>
-        </div>
+      <div class="container">
+          <h2><b>Room Details</b></h2>
+          <form method="post">
+          {% csrf_token %}
+          {% for i in range %}
+              <div>
+                  <h3><b>Room {{ i }}</b></h3>
+                  <fieldset class="test">
+                      <legend>Room Construction</legend>
+                      <label for="nameroom_{{ i }}" class="text"><b>Name: </b></label>
+                      <input type="text" name="nameroom_{{ i }}" required><br><br>
+                      <label for="description_{{ i }}" class="text"><b>Description: </b></label>
+                      <input type="text" name="description_{{ i }}" required><br><br>
+                      <label for="apps_{{ i }}" class="text"><b>Room Application: </b></label>
+                      <select name="apps_{{ i }}" id="apps_{{ i }}">
+                          <option value="living">Living Room</option>
+                          <option value="dining">Dining Room</option>
+                          <option value="kitchen">Kitchen</option>
+                          <option value="bedroom">Bedroom</option>
+                          <option value="bathroom">Bathroom</option>
+                      </select>
+                  </fieldset>
+                  <fieldset>
+                      <legend>Room Size</legend>
+                      <label for="length_{{ i }}" class="text"><b>Length: </b></label>
+                      <input type="text" name="length_{{ i }}" required><br><br>
+                      <label for="width_{{ i }}" class="text"><b>Width: </b></label>
+                      <input type="text" name="width_{{ i }}" required><br><br>
+                      <label for="height_{{ i }}" class="text"><b>Height: </b></label>
+                      <input type="text" name="height_{{ i }}" required>
+                  </fieldset>
+              </div><br>
+          {% endfor %}
+              <button class="w3-yellow" type="submit">Save</button>
+          </form>
+      </div>
     </section>
+
+<!--            <div>-->
+<!--                <form method="post">-->
+<!--                {% csrf_token %}-->
+<!--                    <fieldset>-->
+<!--                    <legend>Room Size</legend>-->
+<!--                    <label for="length" class="text"><b>Length: </b></label>-->
+<!--                    <input type="text" name="length" required><br><br>-->
+<!--                    <label for="width" class="text"><b>Width: </b></label>-->
+<!--                    <input type="text"  name="width" required><br><br>-->
+<!--                    <label for="height" class="text"><b>Height: </b></label>-->
+<!--                    <input type="text"  name="height" required>-->
+<!--                    </fieldset>-->
+<!--                </form>-->
+<!--            </div><br>-->
+
+<!--            <div>-->
+<!--                <form method="post">-->
+<!--                {% csrf_token %}-->
+<!--                    <fieldset>-->
+<!--                    <legend>Room Properties</legend>-->
+<!--                    <label for="colour" class="text"><b>Room Colour: </b></label>-->
+<!--                    <input type="text" name="colour" required><br><br>-->
+<!--                    <label for="occupant" class="text"><b>Num. Of Occupants: </b></label>-->
+<!--                    <input type="text" name="occupant" required><br><br>-->
+<!--                    <label for="material" class="text"><b>Building Material: </b></label>-->
+<!--                    <select name="material" id="material">-->
+<!--                        <option value="material1">Material 1</option>-->
+<!--                        <option value="material2">Material 2</option>-->
+<!--                    </select><br><br>-->
+<!--                    <input type="checkbox" name="fan" value="fan">-->
+<!--                    <label for="fan"> Fan </label><br>-->
+<!--                </form>-->
+<!--            </div><br>-->
+
+<!--            <div>-->
+<!--                <form method="post">-->
+<!--                {% csrf_token %}-->
+<!--                    <fieldset>-->
+<!--                    <legend>Lighting System</legend>-->
+<!--                    <label for="name" class="text"><b>Name:</b></label>-->
+<!--                    <input type="text" name="name" required><br><br>-->
+<!--                    <label for="description" class="text"><b>Description:</b></label>-->
+<!--                    <input type="text" name="description" required><br><br>-->
+<!--                    </fieldset>-->
+<!--                </form>-->
+<!--            </div><br>-->
+
+<!--             <div>-->
+<!--                <form method="post">-->
+<!--                {% csrf_token %}-->
+<!--                    <fieldset>-->
+<!--                    <legend>Cooling System</legend>-->
+<!--                    <label for="name" class="text"><b>Name: </b></label>-->
+<!--                    <input type="text" name="name" required><br><br>-->
+<!--                    <label for="description" class="text"><b>Description: </b></label>-->
+<!--                    <input type="text" name="description" required><br><br>-->
+<!--                </form>-->
+<!--            </div>-->
+
+<!--            </div>-->
+<!--                <button class="w3-yellow" type="submit">Save</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
 
 <!--&lt;!&ndash; Top menu on small screens &ndash;&gt;-->
 <!--<header class="w3-container w3-top w3-hide-large w3-light-grey w3-xlarge w3-padding">-->

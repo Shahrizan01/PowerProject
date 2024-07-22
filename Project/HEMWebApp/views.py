@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .models import Project
+from .models import Project, Room
 
 
 # Create your views here.
@@ -77,28 +77,51 @@ def logout_action(request):
 
 
 @login_required
-def room_view(request):
+def roomdetails_view(request, project_id):
+    project = get_object_or_404(Project, id=project_id)
     user = request.user
+
+    if request.method == 'POST':
+        for i in range(project.numroom):
+            name = request.POST.get(f'nameroom_{i}')
+            desc = request.POST.get(f'description_{i}')
+            app = request.POST.get(f'apps_{i}')
+            length = request.POST.get(f'length_{i}')
+            width = request.POST.get(f'width_{i}')
+            height = request.POST.get(f'height_{i}')
+
+            Room.objects.create(
+                name=name,
+                desc=desc,
+                app=app,
+                length=length,
+                width=width,
+                height=height,
+                projectname=project,
+                created_by=user
+            )
+
+        return redirect('userindex')
 
     data = {
         'user': user,
+        'range': range(project.numroom),
     }
     return render(request, 'mainpage.html', data)
 
 
 @login_required
 def createproject_view(request):
+    user = request.user
     if request.method == 'POST':
         projectname = request.POST.get('projectname')
         numroom = request.POST.get('numroom')
         Project.objects.create(
             name=projectname,
             numroom=numroom,
-            created_by=request.user,
+            created_by=user,
         )
         return redirect('rooms')
-
-    user = request.user
 
     data = {
         'user': user,
