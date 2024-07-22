@@ -116,6 +116,7 @@ def roomdetails_view(request, project_id):
     data = {
         'user': user,
         'range': range(project.numroom),
+        'project': project,
     }
     return render(request, 'mainpage.html', data)
 
@@ -126,12 +127,12 @@ def createproject_view(request):
     if request.method == 'POST':
         projectname = request.POST.get('projectname')
         numroom = request.POST.get('numroom')
-        Project.objects.create(
+        project = Project.objects.create(
             name=projectname,
             numroom=numroom,
             created_by=user,
         )
-        return redirect('rooms')
+        return redirect('rooms/'+str(project.id))
 
     data = {
         'user': user,
