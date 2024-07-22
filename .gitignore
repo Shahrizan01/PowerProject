@@ -3,3 +3,5 @@ Project/db.sqlite3
 Project/HEMProject/__pycache__/settings.cpython-39.pyc
 Project/HEMWebApp/__pycache__/urls.cpython-39.pyc
 Project/HEMWebApp/__pycache__/views.cpython-39.pyc
+Project/db.sqlite3
+Project/HEMWebApp/__pycache__/views.cpython-310.pyc
