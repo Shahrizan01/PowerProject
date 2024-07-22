@@ -75,6 +75,16 @@ def logout_action(request):
     logout(request)
     return redirect('index')
 
+@login_required
+def dashboard_view(request):
+    first_name = request.user.first_name
+    last_name = request.user.last_name
+
+    data = {
+        'user': request.user,
+        'name': first_name + ' ' + last_name,
+    }
+    return render(request, 'dashboard.html', data)
 
 @login_required
 def roomdetails_view(request, project_id):
