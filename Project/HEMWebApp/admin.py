@@ -12,9 +12,9 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 class RoomAdmin(admin.ModelAdmin):
-    list_display = ['name', 'app', 'projectname', 'date_created']
-    list_filter = ['projectname']
-    search_fields = ['name', 'projectname']
+    list_display = ['name', 'app', 'project', 'date_created']
+    list_filter = ['project']
+    search_fields = ['name', 'project']
     date_hierarchy = 'date_created'
 
 

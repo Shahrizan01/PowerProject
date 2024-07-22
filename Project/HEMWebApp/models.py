@@ -22,7 +22,7 @@ class Room(models.Model):
     length = models.FloatField()
     width = models.FloatField()
     height = models.FloatField()
-    projectname = models.ForeignKey(Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     date_created = models.DateTimeField(default=timezone.now)
 

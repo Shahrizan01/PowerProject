@@ -109,11 +109,11 @@ def roomdetails_view(request, project_id):
                 length=length,
                 width=width,
                 height=height,
-                projectname=project,
+                project=project,
                 created_by=user
             )
 
-        return redirect('userindex')
+        return redirect('project')
 
     data = {
         'user': user,
@@ -141,3 +141,29 @@ def createproject_view(request):
     }
 
     return render(request, 'newproject.html', data)
+
+
+@login_required
+def existproject_view(request):
+    user = request.user
+    projects = Project.objects.filter(created_by=user)
+
+    data = {
+        'user': user,
+        'projects': projects,
+    }
+    return render(request, 'existproject.html', data)
+
+
+@login_required
+def projectdetails_view(request, project_id):
+    user = request.user
+    project = get_object_or_404(Project, id=project_id)
+    rooms = Room.objects.filter(project=project)
+
+    data = {
+        'user': user,
+        'project': project,
+        'rooms': rooms,
+    }
+    return render(request, 'projectdetails.html', data)

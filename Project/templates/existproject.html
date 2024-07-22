@@ -108,62 +108,23 @@
         </div>
 
         <div class="row">
+          {% for project in projects %}
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Project 1</a></h4>
+              <h4><a href="{% url 'projectdetails' project.id %}">{{ project.name }}</a></h4>
 <!--              <p>Description 1</p>-->
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Project 2</a></h4>
-<!--              <p>Description 2</p>-->
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Project 3</a></h4>
-<!--              <p>Description 3</p>-->
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Project 4</a></h4>
-<!--              <p>Description 4</p>-->
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Project 5</a></h4>
-<!--              <p>Description 5</p>-->
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Project 6</a></h4>
-<!--              <p>Description 6</p>-->
-            </div>
-          </div>
+          {% endfor %}
 
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-plus"></i></div>
-              <h4><a href="">New Project</a></h4>
+              <h4><a href="/createproject">New Project</a></h4>
 <!--              <p>Description 6</p>-->
             </div>
           </div>
-
         </div>
       </div>
   </section><!-- End Services Section -->
