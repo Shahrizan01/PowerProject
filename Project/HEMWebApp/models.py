@@ -13,3 +13,18 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Room(models.Model):
+    name = models.CharField(max_length=100)
+    desc = models.CharField(max_length=300)
+    app = models.CharField(max_length=50, default='Living Room')
+    length = models.FloatField()
+    width = models.FloatField()
+    height = models.FloatField()
+    projectname = models.ForeignKey(Project, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    date_created = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.name
