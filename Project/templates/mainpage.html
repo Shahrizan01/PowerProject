@@ -78,16 +78,20 @@
       </nav>
 
        <div class="navmenu">
-          {% if user is not none %}
-            <li class="dropdown"><a href="#"><span>Hi {{ user.first_name }} </span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="/logout">Logout</a></li>
-                </ul>
-            </li>
+           <ul>
+                {% if user is not none %}
+                <li class="dropdown"><a href="#"><span>Hi {{ user.first_name }} </span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul>
+                      <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
        </div>
-          {% else %}
+
+        {% else %}
             <a class="btn-login" href="/login">Login</a>
-          {% endif %}
+        {% endif %}
+
     </div>
   </header>
 
