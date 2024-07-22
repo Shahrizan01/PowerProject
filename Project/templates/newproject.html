@@ -47,7 +47,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
 <!--          <li><a href="#hero" class="active">Home<br></a></li>-->
-          <li class="dropdown"><a href="#"><span>Home</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="/userindex"><span>Home</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#about">About</a></li>
               <li><a href="#services">Services</a></li>
@@ -75,8 +75,8 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      {% if name is not none %}
-        <li class="dropdown"><a href="#"><span>Hi {{ name }} </span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+      {% if user is not none %}
+        <li class="dropdown"><a href="#"><span>Hi {{ user.first_name }} </span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="/logout">Logout</a></li>
             </ul>
@@ -89,26 +89,28 @@
 
   <section>
             <div >
-                <form >
+                <form method="post">
+                    {% csrf_token %}
                     <fieldset class="test">
                     <legend>New project</legend>
                     <label for="nameproject" class="text"><b>Project Name:</b></label>
-                    <input type="text" name="nameproject" required><br><br>
+                    <input type="text" name="projectname" required><br><br>
                     <label for="numroom" class="text"><b>Number of rooms</b></label>
                     <select name="numroom" id="numroom">
-                          <option value="numroom1">1</option>
-                          <option value="numroom2">2</option>
-                          <option value="numroom3">3</option>
-                          <option value="numroom4">4</option>
-                          <option value="numroom5">5</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
                     </select>
                     </fieldset>
+                    <button class="w3-yellow" type="submit">Save</button>
                 </form>
             </div>
 
-            </div>
-                <button class="w3-yellow" type="submit">Save</button>
-            </div>
+<!--            </div>-->
+<!--                <button class="w3-yellow" type="submit">Save</button>-->
+<!--            </div>-->
   </section>
 
 <!--&lt;!&ndash; Top menu on small screens &ndash;&gt;-->

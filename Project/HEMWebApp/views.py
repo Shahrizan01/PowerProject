@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from .models import Project
 
 
 # Create your views here.
@@ -19,15 +20,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            first_name = request.user.first_name
-            last_name = request.user.last_name
-
-            data = {
-                'user': user,
-                'name': first_name + ' ' + last_name,
-            }
-
-            return render(request, 'index.html', data)
+            return redirect('userindex')
         else:
             messages.error(request, 'Invalid username or password. Please try again.')
             return redirect('login')
@@ -60,6 +53,19 @@ def signup_view(request):
 
 
 @login_required
+def userindex_views(request):
+    first_name = request.user.first_name
+    last_name = request.user.last_name
+
+    data = {
+        'user': request.user,
+        'name': first_name + ' ' + last_name,
+    }
+
+    return render(request, 'index.html', data)
+
+
+@login_required
 def homepage_view(request):
     return render(request, 'homepage.html')
 
@@ -70,5 +76,32 @@ def logout_action(request):
     return redirect('index')
 
 
+@login_required
 def room_view(request):
-    return render(request, 'mainpage.html')
+    user = request.user
+
+    data = {
+        'user': user,
+    }
+    return render(request, 'mainpage.html', data)
+
+
+@login_required
+def createproject_view(request):
+    if request.method == 'POST':
+        projectname = request.POST.get('projectname')
+        numroom = request.POST.get('numroom')
+        Project.objects.create(
+            name=projectname,
+            numroom=numroom,
+            created_by=request.user,
+        )
+        return redirect('rooms')
+
+    user = request.user
+
+    data = {
+        'user': user,
+    }
+
+    return render(request, 'newproject.html', data)
