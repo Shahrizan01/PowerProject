@@ -75,6 +75,7 @@ def logout_action(request):
     logout(request)
     return redirect('index')
 
+
 @login_required
 def dashboard_view(request):
     first_name = request.user.first_name
@@ -85,6 +86,7 @@ def dashboard_view(request):
         'name': first_name + ' ' + last_name,
     }
     return render(request, 'dashboard.html', data)
+
 
 @login_required
 def roomdetails_view(request, project_id):
@@ -116,6 +118,7 @@ def roomdetails_view(request, project_id):
     data = {
         'user': user,
         'range': range(project.numroom),
+        'project': project,
     }
     return render(request, 'mainpage.html', data)
 
@@ -126,12 +129,12 @@ def createproject_view(request):
     if request.method == 'POST':
         projectname = request.POST.get('projectname')
         numroom = request.POST.get('numroom')
-        Project.objects.create(
+        project = Project.objects.create(
             name=projectname,
             numroom=numroom,
             created_by=user,
         )
-        return redirect('rooms')
+        return redirect('rooms/'+str(project.id))
 
     data = {
         'user': user,

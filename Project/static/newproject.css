@@ -1,29 +1,45 @@
-form {
-    padding:10px;
-}
-
-h2{
+/*h2{
     background-color:#f2f2f2
-}
+}*/
 
-legend{
-    background-color:  #cccccc;
-    padding: 10px 14px;
-}
-
-section{
+/*section*/
+.secnewproject{
     margin: 150px auto;
-    width: 50%; border:
-    3px solid black;
-    padding: 50px;
+    width: 50%;
+    border:3px solid black;
+    padding-top: 10px;
     border-radius: 25px;
     background-color:#f2f2f2;
 }
 
+/*division*/
+.divnewproject{
+    font-family:sans-serif;
+}
+
+/*form*/
+form {
+    padding: 30px;
+}
+
+/*fieldset*/
+.fsnewproject{
+  border-radius: 15px;
+  border-color: black;
+}
+
+/*legend*/
+legend{
+    background-color:  #cccccc;
+    padding: 10px 14px;
+    border-radius: 15px;
+}
+
+/*button*/
 button {
   color: black;
   padding: 5px 5px;
-  margin: auto;
+  margin: 10px auto;
   border: none;
   cursor: pointer;
   width: 20%;
@@ -36,3 +52,4 @@ button {
 button:hover {
   opacity: 0.8;
 }
+

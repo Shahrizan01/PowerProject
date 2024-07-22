@@ -1,31 +1,47 @@
-
-form {
-  border: 3px solid black;
+.title{
+    margin: 5px;
 }
 
-h2{
-    background-color:#f2f2f2
-}
-
-legend{
-    background-color:  #cccccc;
-    padding: 10px 14px;
-}
-
-section{
-    float:right;
-    margin: 100px 100px;
-    width: 70%;
-    border: 3px solid black;
-    padding: 10px;
+/*section*/
+.secnewproject{
+    float: right;
+    margin: 200px 250px;
+    width: 50%;
+    border:3px solid black;
+    padding-top: 10px;
     border-radius: 25px;
-    background-color:#f2f2f2;
+    background-color:#FFFFF0;
 }
 
+/*division*/
+.divnewproject{
+}
+
+/*form*/
+form {
+    padding: 20px;
+}
+
+/*fieldset*/
+.fsnewproject{
+  margin: 20px auto;
+  border-radius: 15px;
+  border-color: black;
+   background-color:  #FFFFE0;
+}
+
+/*legend*/
+legend{
+    background-color: #FFD700;
+    padding: 10px 14px;
+    border-radius: 15px;
+}
+
+/*button*/
 button {
   color: black;
-  padding: 14px 5px;
-  margin: 10px;
+  padding: 5px 5px;
+  margin: 5px auto;
   border: none;
   cursor: pointer;
   width: 20%;
@@ -34,7 +50,12 @@ button {
   float: right;
 }
 
-/* Add a hover effect for buttons */
+/*Add a hover effect for buttons */
 button:hover {
   opacity: 0.8;
 }
+
+.text{
+    font-family:sans-serif;
+}
+
