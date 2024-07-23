@@ -28,14 +28,15 @@
   <link href="static/assets/css/main.css" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="static/newproject.css">
+  <link rel="stylesheet" href="{% static 'newproject.css' %}">
   <link rel="stylesheet" href="static/assets/css/main.css">
+  <link href="{% static 'existproject.css' %}" rel="stylesheet">
 
 
   <title>New project</title>
 </head>
 
-<body>
+<body style=" background-color: #f2f2f2;" >
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
@@ -96,31 +97,59 @@
     </div>
   </header>
 
-  <section class="secnewproject ">
-            <div class="divnewproject" >
+
+    <!-- ======= Services Section ======= -->
+  <section class="services">
+      <div class="container">
+
+        <div class="sectiontitle h2">
+          <h2>New Project</h2>
+        </div>
+
+        <div class="divnewproject" >
                 <form method="post">
                     {% csrf_token %}
                     <fieldset class="fsnewproject">
-                    <legend>New project</legend>
-                    <label for="nameproject" class="text"><b>Project Name:</b></label>
-                    <input type="text" name="projectname" required><br><br>
-                    <label for="numroom" class="text"><b>Number of rooms</b></label>
-                    <select name="numroom" id="numroom">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                    </select>
+<!--                        <legend>New project</legend>-->
+                        <label for="nameproject" class="text"><b>Project Name:</b></label>
+                        <input type="text" name="projectname" required><br><br>
+                        <label for="numroom" class="text"><b>Number of rooms:</b></label>
+                        <select name="numroom" id="numroom">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                        </select>
                     </fieldset>
                     <button class="w3-yellow" type="submit">Save</button>
                 </form>
             </div>
 
+
+
+
+<!--        <div class="row">-->
+<!--          {% for project in projects %}-->
+<!--          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">-->
+<!--            <div class="icon-box">-->
+<!--              <div class="icon"><i class="bx bx-file"></i></div>-->
+<!--              <h4><a href="{% url 'projectdetails' project.id %}">{{ project.name }}</a></h4>-->
+<!--&lt;!&ndash;              <p>Description 1</p>&ndash;&gt;-->
 <!--            </div>-->
-<!--                <button class="w3-yellow" type="submit">Save</button>-->
+<!--          </div>-->
+<!--          {% endfor %}-->
+
+<!--            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">-->
+<!--            <div class="icon-box-1">-->
+<!--              <div class="icon"><i class="bx bx-plus"></i></div>-->
+<!--              <h4><a href="/createproject">New Project</a></h4>-->
+<!--&lt;!&ndash;              <p>Description 6</p>&ndash;&gt;-->
 <!--            </div>-->
-  </section>
+<!--          </div>-->
+<!--        </div>-->
+      </div>
+  </section><!-- End Services Section -->
 
 <!--&lt;!&ndash; Top menu on small screens &ndash;&gt;-->
 <!--<header class="w3-container w3-top w3-hide-large w3-light-grey w3-xlarge w3-padding">-->
