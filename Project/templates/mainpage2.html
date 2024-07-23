@@ -138,36 +138,40 @@
       <div class="row">
         <div class="col-lg-6">
 
+
           <div class="card">
             <div class="card-body">
-                <h1 class="card-title" style="font-size:30px;"><b>Room 1</b></h1>
+              
+              {% for i in range  %}
+              <h1 class="card-title" style="font-size:30px;"><b>Room {{ i }}</b></h1>
               <h5 class="card-title">Room Construction</h5>
 
               <!-- General Form Elements -->
-              <form>
+              <form method="post">
+                {% csrf_token %}              
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Name</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
+                    <input type="text" name="nameroom_{{ i }}" required class="form-control">
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
                   <div class="col-sm-10">
-                    <textarea class="form-control" style="height: 100px"></textarea>
+                    <textarea class="form-control" name="description_{{ i }}" required style="height: 100px"></textarea>
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label">Room Application</label>
                   <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example">
-                      <option value="1">Living Room</option>
-                      <option value="2">Dining Room</option>
-                      <option value="3">Kitchen</option>
-                      <option value="3">Bedroom</option>
-                      <option value="3">Bathroom</option>
+                    <select class="form-select" name="apps_{{ i }}" id="apps_{{ i }}" aria-label="Default select example">
+                      <option value="living">Living Room</option>
+                      <option value="dining">Dining Room</option>
+                      <option value="kitchen">Kitchen</option>
+                      <option value="bedroom">Bedroom</option>
+                      <option value="bathroom">Bathroom</option>
                     </select>
                   </div>
                 </div>
@@ -177,21 +181,21 @@
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">Length (m)</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" name="length_{{ i }}" required>
                   </div>
                 </div>
 
                  <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">Width (m)</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" name="width_{{ i }}" required>
                   </div>
                 </div>
 
                  <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">Height (m)</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" name="height_{{ i }}" required>
                   </div>
                 </div>
 
@@ -200,32 +204,32 @@
                 <div class="row mb-3">
                   <label for="inputColor" class="col-sm-2 col-form-label">Room Colour</label>
                   <div class="col-sm-10">
-                    <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#4154f1" title="Choose your color">
+                    <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#4154f1" title="Choose your color" name="color_{{ i }}" required>
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">Room Occupants</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" name="occupants_{{ i }}" required>
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">Num. of Windows</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" name="window_num_{{ i }}" required>
                   </div>
                 </div>
 
                  <div class="row mb-3">
                   <label class="col-sm-2 col-form-label">Window Orientation</label>
                   <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example">
-                      <option value="1">North</option>
-                      <option value="2">South</option>
-                      <option value="3">East</option>
-                      <option value="4">West</option>
+                    <select class="form-select" aria-label="Default select example" name="window_orientation_{{ i }}" required>
+                      <option value="north">North</option>
+                      <option value="south">South</option>
+                      <option value="east">East</option>
+                      <option value="west">West</option>
                     </select>
                   </div>
                 </div>
@@ -334,7 +338,7 @@
 <!--                    </select>-->
 <!--                  </div>-->
 <!--                </div>-->
-
+                {% endfor %}
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label"></label>
                   <div class="col-sm-10" >
@@ -343,9 +347,10 @@
                 </div>
 
               </form><!-- End General Form Elements -->
-
+              
             </div>
           </div>
+          
         </div>
       </div>
     </section>
