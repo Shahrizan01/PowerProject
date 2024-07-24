@@ -141,7 +141,7 @@
 
           <div class="card">
             <div class="card-body">
-              
+
               {% for i in range  %}
               <h1 class="card-title" style="font-size:30px;"><b>Room {{ i }}</b></h1>
               <h5 class="card-title">Room Construction</h5>
@@ -216,9 +216,16 @@
                 </div>
 
                 <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">Num. of Windows</label>
+                  <label class="col-sm-2 col-form-label">Num. of Window</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control" name="window_num_{{ i }}" required>
+                    <input type="text" class="form-control" value="1" disabled>
+                  </div>
+                </div>
+
+                 <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-2 col-form-label">Window Size (m2)</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control" name="occupants_{{ i }}" required>
                   </div>
                 </div>
 
@@ -226,15 +233,20 @@
                   <label class="col-sm-2 col-form-label">Window Orientation</label>
                   <div class="col-sm-10">
                     <select class="form-select" aria-label="Default select example" name="window_orientation_{{ i }}" required>
-                      <option value="north">North</option>
-                      <option value="south">South</option>
-                      <option value="east">East</option>
-                      <option value="west">West</option>
+                      <option value="north">North-South</option>
+                      <option value="east">East-West</option>
                     </select>
                   </div>
                 </div>
 
                    <h5 class="card-title">Lighting System</h5>
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Required Illumination</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" value="200 lx" disabled>
+                  </div>
+                </div>
+
                    <h5 class="card-title">Cooling System</h5>
 
 <!--                <div class="row mb-3">-->
@@ -318,12 +330,12 @@
 <!--                  </div>-->
 <!--                </div>-->
 
-<!--                <div class="row mb-3">-->
-<!--                  <label class="col-sm-2 col-form-label">Disabled</label>-->
-<!--                  <div class="col-sm-10">-->
-<!--                    <input type="text" class="form-control" value="Read only / Disabled" disabled>-->
-<!--                  </div>-->
-<!--                </div>-->
+<!--                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Disabled</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" value="Read only / Disabled" disabled>
+                  </div>
+                </div>-->
 
 
 
