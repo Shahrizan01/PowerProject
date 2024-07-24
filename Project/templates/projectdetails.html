@@ -154,7 +154,7 @@
               <h5 class="card-title">Room Construction</h5>
 
               <!-- Table with stripped rows -->
-              <table class="table datatable">
+              <table class="table datatable" >
                 <thead>
                   <tr>
                     <th>
@@ -170,25 +170,17 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {% for room in rooms %}
                   <tr>
-                    <td>Room 1</td>
-                    <td>Master Bedroom</td>
-                    <td>Bedroom</td>
-                    <td>5</td>
-                    <td>5</td>
-                    <td>5</td>
-                    <td>25</td>
+                    <td>{{ room.name }}</td>
+                    <td>{{ room.desc }}</td>
+                    <td>{{ room.app }}</td>
+                    <td>{{ room.length }}</td>
+                    <td>{{ room.width }}</td>
+                    <td>{{ room.height }}</td>
+                    <td>{{ room.length }} x {{ room.width }}</td>
                   </tr>
-                  <tr>
-                    <td>Room 2</td>
-                    <td>Bilik Awang</td>
-                    <td>Bedroom</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>9</td>
-                  </tr>
-
+                  {% endfor %}
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
@@ -216,23 +208,16 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {% for room in rooms %}
                   <tr>
-                    <td>Room 1</td>
-                    <td>White</td>
-                    <td>5</td>
-                    <td>1</td>
-                    <td>5</td>
-                    <td>North-South</td>
+                    <td>{{ room.name }}</td>
+                    <td>{{ room.color}}</td>
+                    <td>{{ room.occupants }}</td>
+                    <td>{{ room.window_num }}</td>
+                    <td>{{ room.window_size }}</td>
+                    <td>{{ room.window_orientation }}</td>
                   </tr>
-                  <tr>
-                    <td>Room 2</td>
-                    <td>Black</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>East-West</td>
-                  </tr>
-
+                  {% endfor %}
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
@@ -258,21 +243,15 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {% for room in rooms %}
                   <tr>
-                    <td>Room 1</td>
-                    <td>180 Lux</td>
+                    <td>{{ room.name }}</td>
+                    <td>{{ room.illumination_req }}</td>
 <!--                    <td>Curicó</td>-->
 <!--                    <td>2005/02/11</td>-->
 <!--                    <td>37%</td>-->
                   </tr>
-                  <tr>
-                    <td>Room 2</td>
-                    <td>180 Lux</td>
-<!--                    <td>Dhanbad</td>-->
-<!--                    <td>1999/04/07</td>-->
-<!--                    <td>97%</td>-->
-                  </tr>
-
+                  {% endfor %}
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->

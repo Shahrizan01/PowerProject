@@ -28,7 +28,9 @@ class Room(models.Model):
     color = models.CharField(max_length=7, default='#4154f1')
     occupants = models.IntegerField(default=1)
     window_num = models.IntegerField(default=1)
-    window_orientation = models.CharField(max_length=5, default='')
+    window_orientation = models.CharField(max_length=11, default='')
+    window_size = models.FloatField(default=0)
+    illumination_req = models.IntegerField(default=200)
 
 
     def __str__(self):
