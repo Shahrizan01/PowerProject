@@ -25,6 +25,11 @@ class Room(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     date_created = models.DateTimeField(default=timezone.now)
+    color = models.CharField(max_length=7, default='#4154f1')
+    occupants = models.IntegerField(default=1)
+    window_num = models.IntegerField(default=1)
+    window_orientation = models.CharField(max_length=5, default='')
+
 
     def __str__(self):
         return self.name

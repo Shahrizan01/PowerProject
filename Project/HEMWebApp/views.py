@@ -101,6 +101,10 @@ def roomdetails_view(request, project_id):
             length = request.POST.get(f'length_{i}')
             width = request.POST.get(f'width_{i}')
             height = request.POST.get(f'height_{i}')
+            color = request.POST.get(f'color_{i}')
+            occupants = request.POST.get(f'occupants_{i}')
+            window_num = request.POST.get(f'window_num_{i}')
+            window_orientation = request.POST.get(f'window_orientation_{i}')
 
             Room.objects.create(
                 name=name,
@@ -109,9 +113,15 @@ def roomdetails_view(request, project_id):
                 length=length,
                 width=width,
                 height=height,
+                color=color,
+                occupants=occupants,
+                window_num=window_num,
+                window_orientation=window_orientation,
                 project=project,
                 created_by=user
             )
+
+            # print(name, desc, app, length, width, height, color, occupants, window_num, window_orientation)
 
         return redirect('project')
 
@@ -120,7 +130,7 @@ def roomdetails_view(request, project_id):
         'range': range(project.numroom),
         'project': project,
     }
-    return render(request, 'mainpage.html', data)
+    return render(request, 'mainpage2.html', data)
 
 
 @login_required
