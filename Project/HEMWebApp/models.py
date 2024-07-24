@@ -31,7 +31,8 @@ class Room(models.Model):
     window_orientation = models.CharField(max_length=11, default='')
     window_size = models.FloatField(default=0)
     illumination_req = models.IntegerField(default=200)
-
+    lamp_specs = models.CharField(max_length=50, default='')
+    aircond_type = models.CharField(max_length=50, default='')
 
     def __str__(self):
         return self.name

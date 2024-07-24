@@ -106,28 +106,32 @@ def roomdetails_view(request, project_id):
             window_num = request.POST.get(f'window_num_{i}')
             window_orientation = request.POST.get(f'window_orientation_{i}')
             window_size = request.POST.get(f'window_size_{i}')
-            illumination_req = request.POST.get(f'illumination_req_{i}')
+            # illumination_req = request.POST.get(f'illumination_req_{i}')
+            lamp_specs = request.POST.get(f'lamp_specs_{i}')
+            aircond_type = request.POST.get(f'aircond_type_{i}')
 
-            # Room.objects.create(
-            #     name=name,
-            #     desc=desc,
-            #     app=app,
-            #     length=length,
-            #     width=width,
-            #     height=height,
-            #     color=color,
-            #     occupants=occupants,
-            #     window_num=window_num,
-            #     window_orientation=window_orientation,
-            #     window_size = window_size,
-            #     illumination_req = illumination_req,
-            #     project=project,
-            #     created_by=user
-            # )
+            Room.objects.create(
+                name=name,
+                desc=desc,
+                app=app,
+                length=length,
+                width=width,
+                height=height,
+                color=color,
+                occupants=occupants,
+                window_num=window_num,
+                window_orientation=window_orientation,
+                window_size = window_size,
+                lamp_specs = lamp_specs,
+                aircond_type = aircond_type,
+                # illumination_req = illumination_req,
+                project=project,
+                created_by=user
+            )
 
-            print(name, desc, app, length, width, height, 
-                  color, occupants, window_num, window_orientation,
-                  window_size, illumination_req)
+            # print(name, desc, app, length, width, height,
+            #       color, occupants, window_num, window_orientation,
+            #       window_size, lamp_specs, aircond_type)
 
         return redirect('project')
 
