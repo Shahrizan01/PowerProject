@@ -187,3 +187,61 @@ def projectdetails_view(request, project_id):
         'rooms': rooms,
     }
     return render(request, 'projectdetails.html', data)
+
+
+@login_required
+def movetorooms_view(request, project_id):
+    if request.method == 'POST':
+        project = get_object_or_404(Project, id=project_id)
+        rooms = Room.objects.filter(project=project)
+
+        print(rooms)
+
+        data = {
+            'range': range(project.numroom),
+            'project': project,
+            'rooms': rooms,
+        }
+        return render(request, 'mainpage3.html', data)
+
+
+@login_required
+def editrooms_view(request, project_id):
+    project = get_object_or_404(Project, id=project_id)
+    rooms = Room.objects.filter(project=project)
+
+    if request.method == 'POST':
+        for i, room in enumerate(rooms, start=1):
+            # Update room details
+            room.name = request.POST.get(f'nameroom_{i}')
+            room.desc = request.POST.get(f'description_{i}')
+            room.app = request.POST.get(f'apps_{i}')
+            room.length = request.POST.get(f'length_{i}')
+            room.width = request.POST.get(f'width_{i}')
+            room.height = request.POST.get(f'height_{i}')
+            room.color = request.POST.get(f'color_{i}')
+            room.occupants = request.POST.get(f'occupants_{i}')
+            room.window_num = request.POST.get(f'window_num_{i}')
+            room.window_size = request.POST.get(f'window_size_{i}')
+            room.window_orientation = request.POST.get(f'window_orientation_{i}')
+            room.lamp_specs = request.POST.get(f'lamp_specs_{i}')
+            room.aircond_type = request.POST.get(f'aircond_type_{i}')
+
+            room.save()
+
+        return redirect('projectdetails', project_id=project_id)
+
+    else:
+        context = {
+            'project': project,
+            'rooms': rooms,
+        }
+        return render(request, 'mainpage3.html', context)
+
+
+@login_required
+def deleteproject_view(request, project_id):
+    if request.method == 'POST':
+        project = get_object_or_404(Project, id=project_id)
+        project.delete()
+        return redirect('project')

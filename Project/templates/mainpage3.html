@@ -128,8 +128,7 @@
     </aside>
 
 <!--form-->
-  <main id="main" class="main">
-
+<main id="main" class="main">
     <div class="pagetitle">
       <h1>Room Details</h1>
     </div><!-- End Page Title -->
@@ -137,41 +136,38 @@
     <section class="section">
       <div class="row">
         <div class="col-lg-6">
-
-
           <div class="card">
             <div class="card-body">
-
-              {% for i in range %}
+              {% for room in rooms %}
               <h1 class="card-title" style="font-size:30px;"><b>Room {{ forloop.counter }}</b></h1>
               <h5 class="card-title">Room Construction</h5>
 
               <!-- General Form Elements -->
-              <form method="post">
+              <form method="post" action="{% url 'editrooms' project.id %}">
                 {% csrf_token %}
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Name</label>
                   <div class="col-sm-10">
-                    <input type="text" name="nameroom_{{ i }}" required class="form-control" val>
+                    <input type="text" name="nameroom_{{ forloop.counter }}" required class="form-control" value="{{ room.name }}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="description_{{ i }}" required style="height: 100px">
+                    <input type="text" class="form-control" name="description_{{ forloop.counter }}" required style="height: 100px" value="{{ room.desc }}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label">Room Application</label>
                   <div class="col-sm-10">
-                    <select class="form-select" name="apps_{{ i }}" id="apps_{{ i }}" aria-label="Default select example">
-                      <option value="Living Room">Living Room</option>
-                      <option value="Dining Room">Dining Room</option>
-                      <option value="Kitchen">Kitchen</option>
-                      <option value="Bedroom">Bedroom</option>
-                      <option value="Bathroom">Bathroom</option>
+                    <select class="form-select" name="apps_{{ forloop.counter }}" id="apps_{{ forloop.counter }}" aria-label="Default select example">
+                      <option value="Living Room" {% if room.app == "Living Room" %}selected{% endif %}>Living Room</option>
+                      <option value="Dining Room" {% if room.app == "Dining Room" %}selected{% endif %}>Dining Room</option>
+                      <option value="Kitchen" {% if room.app == "Kitchen" %}selected{% endif %}>Kitchen</option>
+                      <option value="Bedroom" {% if room.app == "Bedroom" %}selected{% endif %}>Bedroom</option>
+                      <option value="Bathroom" {% if room.app == "Bathroom" %}selected{% endif %}>Bathroom</option>
                     </select>
                   </div>
                 </div>
@@ -181,195 +177,85 @@
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">Length (m)</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control" name="length_{{ i }}" required>
+                    <input type="number" class="form-control" name="length_{{ forloop.counter }}" required value="{{ room.length }}">
                   </div>
                 </div>
 
-                 <div class="row mb-3">
+                <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">Width (m)</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control" name="width_{{ i }}" required>
+                    <input type="number" class="form-control" name="width_{{ forloop.counter }}" required value="{{ room.width }}">
                   </div>
                 </div>
 
-                 <div class="row mb-3">
+                <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">Height (m)</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control" name="height_{{ i }}" required>
+                    <input type="number" class="form-control" name="height_{{ forloop.counter }}" required value="{{ room.height }}">
                   </div>
                 </div>
 
-                 <h5 class="card-title">Other Properties</h5>
+                <h5 class="card-title">Other Properties</h5>
 
                 <div class="row mb-3">
                   <label for="inputColor" class="col-sm-2 col-form-label">Room Colour</label>
                   <div class="col-sm-10">
-                    <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#FFFFFF" title="Choose your color" name="color_{{ i }}" required>
+                    <input type="color" class="form-control form-control-color" id="exampleColorInput" value="{{ room.color }}" title="Choose your color" name="color_{{ forloop.counter }}" required>
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">Room Occupants</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control" name="occupants_{{ i }}" required>
+                    <input type="number" class="form-control" name="occupants_{{ forloop.counter }}" required value="{{ room.occupants }}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label">No. of Window</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control" value="1" name="window_num_{{ i }}" required>
+                    <input type="number" class="form-control" value="{{ room.window_num }}" name="window_num_{{ forloop.counter }}" required>
                   </div>
                 </div>
 
-                 <div class="row mb-3">
+                <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">Window Size (m2)</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control" name="window_size_{{ i }}" required>
+                    <input type="number" class="form-control" name="window_size_{{ forloop.counter }}" required value="{{ room.window_size }}">
                   </div>
                 </div>
 
-                 <div class="row mb-3">
+                <div class="row mb-3">
                   <label class="col-sm-2 col-form-label">Window Orientation</label>
                   <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" name="window_orientation_{{ i }}" required>
-                      <option value="North-South">North-South</option>
-                      <option value="East-West">East-West</option>
+                    <select class="form-select" aria-label="Default select example" name="window_orientation_{{ forloop.counter }}" required>
+                      <option value="North-South" {% if room.window_orientation == "North-South" %}selected{% endif %}>North-South</option>
+                      <option value="East-West" {% if room.window_orientation == "East-West" %}selected{% endif %}>East-West</option>
                     </select>
                   </div>
                 </div>
 
-                   <h5 class="card-title">Lighting System</h5>
+                <h5 class="card-title">Lighting System</h5>
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label">Lamp Specification</label>
                   <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" name="lamp_specs_{{ i }}" required>
-                      <option value="Specs 1">Specs 1</option>
-                      <option value="Specs 2">Specs 2</option>
+                    <select class="form-select" aria-label="Default select example" name="lamp_specs_{{ forloop.counter }}" required>
+                      <option value="Specs 1" {% if room.lamp_specs == "Specs 1" %}selected{% endif %}>Specs 1</option>
+                      <option value="Specs 2" {% if room.lamp_specs == "Specs 2" %}selected{% endif %}>Specs 2</option>
                     </select>
                   </div>
                 </div>
 
-            <!--    <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Required Illumination</label>
-                  <div class="col-sm-10">
-                    <input type="number" class="form-control" value="200" name="illumination_req_{{ i }}" required>
-                  </div>
-                </div>-->
-
-                   <h5 class="card-title">Cooling System</h5>
+                <h5 class="card-title">Cooling System</h5>
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label">Air Conditioning Type</label>
                   <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" name="aircond_type_{{ i }}" required>
-                      <option value="Inverter">Inverter</option>
-                      <option value="Non-Inverter">Non-Inverter</option>
+                    <select class="form-select" aria-label="Default select example" name="aircond_type_{{ forloop.counter }}" required>
+                      <option value="Inverter" {% if room.aircond_type == "Inverter" %}selected{% endif %}>Inverter</option>
+                      <option value="Non-Inverter" {% if room.aircond_type == "Non-Inverter" %}selected{% endif %}>Non-Inverter</option>
                     </select>
                   </div>
                 </div>
-
-
-<!--                <div class="row mb-3">-->
-<!--                  <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>-->
-<!--                  <div class="col-sm-10">-->
-<!--                    <input type="email" class="form-control">-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="row mb-3">-->
-<!--                  <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>-->
-<!--                  <div class="col-sm-10">-->
-<!--                    <input type="password" class="form-control">-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="row mb-3">-->
-<!--                  <label for="inputNumber" class="col-sm-2 col-form-label">Number</label>-->
-<!--                  <div class="col-sm-10">-->
-<!--                    <input type="number" class="form-control">-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="row mb-3">-->
-<!--                  <label for="inputNumber" class="col-sm-2 col-form-label">File Upload</label>-->
-<!--                  <div class="col-sm-10">-->
-<!--                    <input class="form-control" type="file" id="formFile">-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="row mb-3">-->
-<!--                  <label for="inputDate" class="col-sm-2 col-form-label">Date</label>-->
-<!--                  <div class="col-sm-10">-->
-<!--                    <input type="date" class="form-control">-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="row mb-3">-->
-<!--                  <label for="inputTime" class="col-sm-2 col-form-label">Time</label>-->
-<!--                  <div class="col-sm-10">-->
-<!--                    <input type="time" class="form-control">-->
-<!--                  </div>-->
-<!--                </div>-->
-
-<!--                <fieldset class="row mb-3">-->
-<!--                  <legend class="col-form-label col-sm-2 pt-0">Radios</legend>-->
-<!--                  <div class="col-sm-10">-->
-<!--                    <div class="form-check">-->
-<!--                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>-->
-<!--                      <label class="form-check-label" for="gridRadios1">-->
-<!--                        First radio-->
-<!--                      </label>-->
-<!--                    </div>-->
-<!--                    <div class="form-check">-->
-<!--                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">-->
-<!--                      <label class="form-check-label" for="gridRadios2">-->
-<!--                        Second radio-->
-<!--                      </label>-->
-<!--                    </div>-->
-<!--                    <div class="form-check disabled">-->
-<!--                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios" value="option" disabled>-->
-<!--                      <label class="form-check-label" for="gridRadios3">-->
-<!--                        Third disabled radio-->
-<!--                      </label>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </fieldset>-->
-<!--                <div class="row mb-3">-->
-<!--                  <legend class="col-form-label col-sm-2 pt-0">Checkboxes</legend>-->
-<!--                  <div class="col-sm-10">-->
-
-<!--                    <div class="form-check">-->
-<!--                      <input class="form-check-input" type="checkbox" id="gridCheck1">-->
-<!--                      <label class="form-check-label" for="gridCheck1">-->
-<!--                        Example checkbox-->
-<!--                      </label>-->
-<!--                    </div>-->
-
-<!--                    <div class="form-check">-->
-<!--                      <input class="form-check-input" type="checkbox" id="gridCheck2" checked>-->
-<!--                      <label class="form-check-label" for="gridCheck2">-->
-<!--                        Example checkbox 2-->
-<!--                      </label>-->
-<!--                    </div>-->
-
-<!--                  </div>-->
-<!--                </div>-->
-
-<!--                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Disabled</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" value="Read only / Disabled" disabled>
-                  </div>
-                </div>-->
-
-
-
-<!--                <div class="row mb-3">-->
-<!--                  <label class="col-sm-2 col-form-label">Multi Select</label>-->
-<!--                  <div class="col-sm-10">-->
-<!--                    <select class="form-select" multiple aria-label="multiple select example">-->
-<!--                      <option selected>Open this select menu</option>-->
-<!--                      <option value="1">One</option>-->
-<!--                      <option value="2">Two</option>-->
-<!--                      <option value="3">Three</option>-->
-<!--                    </select>-->
-<!--                  </div>-->
-<!--                </div>-->
                 {% endfor %}
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label"></label>
@@ -377,17 +263,15 @@
                     <button type="submit" class="btn btn-primary" style="float:right;">Submit Form</button>
                   </div>
                 </div>
-
               </form><!-- End General Form Elements -->
 
             </div>
           </div>
-
         </div>
       </div>
     </section>
+</main><!-- End #main -->
 
-  </main><!-- End #main -->
 
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

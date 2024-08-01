@@ -275,11 +275,17 @@
           </div>
 
           <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label"></label>
-                  <div class="col-sm-10" >
-                    <button class="btn btn-primary" style="float: right; margin-right: 60px; background-color: red">Delete Project</button>
-                    <button class="btn btn-primary" style="float: right; margin-right: 30px;">Edit Project</button>
-                  </div>
+            <label class="col-sm-2 col-form-label"></label>
+              <div class="col-sm-10">
+                  <form method="post" action="{% url 'movetorooms' project.id %}">
+                      {% csrf_token %}
+                      <button class="btn btn-primary" style="float: right; margin-right: 30px;">Edit Project</button>
+                  </form>
+                <form method="post" action="{% url 'delete' project.id %}">
+                      {% csrf_token %}
+                      <button class="btn btn-primary" style="float: right; margin-right: 30px; background-color: red">Delete Project</button>
+                  </form>
+              </div>
           </div>
 
         </div>

@@ -124,7 +124,7 @@
           {% csrf_token %}
           {% for i in range %}
               <div>
-                  <h3 class="title text"><b>Room {{ i }}</b></h3>
+                  <h3 class="title text"><b>Room {{ forloop.counter }}</b></h3>
                   <fieldset class="fsnewproject">
                       <legend>Room Construction</legend>
                       <label for="nameroom_{{ i }}" class="text"><b>Name: </b></label>
