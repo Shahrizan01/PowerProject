@@ -195,8 +195,6 @@ def movetorooms_view(request, project_id):
         project = get_object_or_404(Project, id=project_id)
         rooms = Room.objects.filter(project=project)
 
-        print(rooms)
-
         data = {
             'range': range(project.numroom),
             'project': project,
@@ -245,3 +243,11 @@ def deleteproject_view(request, project_id):
         project = get_object_or_404(Project, id=project_id)
         project.delete()
         return redirect('project')
+
+
+@login_required
+def deleteroom_view(request, room_id):
+    room = get_object_or_404(Room, id=room_id)
+    project_id = room.project.id
+    room.delete()
+    return redirect('projectdetails', project_id=project_id)

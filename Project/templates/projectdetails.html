@@ -177,6 +177,12 @@
                     <td>{{ room.width }}</td>
                     <td>{{ room.height }}</td>
                     <td>{{ room.length }} x {{ room.width }}</td>
+                    <td>
+                      <form method="post" action="{% url 'delete_room' room.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                      </form>
+                    </td>
                   </tr>
                   {% endfor %}
                 </tbody>
