@@ -9,7 +9,7 @@ from .models import Project, Room
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'display.html')
 
 
 def login_view(request):
