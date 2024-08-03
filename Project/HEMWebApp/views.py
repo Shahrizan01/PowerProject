@@ -9,7 +9,7 @@ from .models import Project, Room
 # Create your views here.
 
 def index(request):
-    return render(request, 'display.html')
+    return render(request, 'index.html')
 
 
 def login_view(request):
@@ -251,3 +251,17 @@ def deleteroom_view(request, room_id):
     project_id = room.project.id
     room.delete()
     return redirect('projectdetails', project_id=project_id)
+
+@login_required
+def recommendation_view(request, project_id):
+    user = request.user
+    project = get_object_or_404(Project, id=project_id)
+    rooms = Room.objects.filter(project=project)
+
+    data = {
+        'user': user,
+        'project': project,
+        'rooms': rooms,
+    }
+
+    return render(request, 'display.html', data)
